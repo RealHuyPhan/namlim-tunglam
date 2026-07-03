@@ -1,14 +1,78 @@
 import Image from "next/image";
 import { Quote } from "lucide-react";
 import CertificateGallery from "@/components/about/CertificateGallery";
+import TimelineSection from "@/components/about/TimelineSection";
 
 export default function AboutPage() {
   return (
-    <main className="w-full flex flex-col min-h-screen bg-white pt-32 pb-24">
+    <main className="w-full flex flex-col min-h-screen bg-white pb-24">
 
-      {/* 1. Open Letter (Hero Section) */}
-      <section className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 mb-20 lg:mb-32">
+      {/* Hero Section */}
+      <section className="relative w-full h-[430px] flex items-center pt-24 md:pt-32 p-[10px]">
+        {/* Background Image */}
+        <div className="absolute inset-[10px] z-0 bg-[#252425] rounded-[16px] overflow-hidden">
+          <Image
+            src="/images/HomeBG.jpg"
+            alt="About Background"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40" /> {/* Dark overlay */}
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="flex flex-col items-start w-full max-w-2xl">
+            <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-white tracking-tight mb-2 md:mb-4">
+              About Myzel
+            </h1>
+            <p className="text-white/90 text-base md:text-lg leading-relaxed font-normal">
+              Our Origins and Purpose
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Story Section from Screenshot */}
+      <section className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 mt-16 md:mt-24 mb-8 lg:mb-15">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+
+          {/* Left: Image */}
+          <div className="w-full lg:w-5/12">
+            <div className="relative w-full aspect-[16/9] rounded-[16px] overflow-hidden">
+              <Image
+                src="/images/HomeBG.jpg"
+                alt="Myzel Farm Sign"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Right: Content */}
+          <div className="w-full lg:w-7/12 flex flex-col justify-center">
+            <div className="inline-flex px-4 py-1.5 rounded-full bg-[#c23e38] text-white text-xs md:text-sm font-medium w-fit mb-6">
+              Story
+            </div>
+            <h2 className="text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] leading-[1.1] font-bold text-gray-900 tracking-tight mb-8">
+              About Myzel
+            </h2>
+            <div className="flex flex-col gap-6 text-gray-900 font-medium leading-relaxed text-[15px] md:text-[17px]">
+              <p>
+                Founded in 2021, Myzel Organics is a family-owned company built on a foundation of sustainability, quality, and transparency.
+              </p>
+              <p>
+                From retrofitting a poultry farm into a cutting-edge mushroom cultivation facility to adopting innovative renewable energy solutions, our journey reflects a deep commitment to creating positive environmental impact.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 1. Open Letter (Kept as requested) */}
+      <section className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 mb-20 lg:mb-32">
+        <div className="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20 items-center">
 
           {/* Left: Text Content Card */}
           <div className="w-full lg:w-2/3 flex flex-col justify-center">
@@ -57,70 +121,50 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 2. Our Story Section */}
-      {/* Background uses a very light harmonious tint of the brand color */}
-      <section className="w-full bg-[#faf6f5] py-20 lg:py-32">
-        <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
+      {/* Timeline Scroll Animation Section */}
+      <TimelineSection />
 
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-16 lg:mb-24">
-            <div className="w-full lg:w-1/4">
-              <h3 className="text-[11px] font-semibold tracking-[0.2em] text-gray-500 uppercase">
-                Câu Chuyện Của Chúng Tôi
-              </h3>
-            </div>
-            <div className="w-full lg:w-3/4">
-              <h2 className="text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[1.1] font-medium text-gray-900 max-w-4xl">
-                Mỗi Cây Nấm Đều Có Câu Chuyện Riêng. Sứ Mệnh Của Chúng Tôi Là Gìn Giữ Nó.
-              </h2>
-            </div>
-          </div>
 
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
-            <div className="w-full lg:w-1/2 text-gray-600 font-light leading-relaxed text-base md:text-lg">
+      {/* 2. Mission Section (from screenshot) */}
+      <section className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 mt-16 md:mt-24 mb-20 lg:mb-32">
+        <div className="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20 items-center">
+          
+          {/* Left: Content */}
+          <div className="w-full lg:w-7/12 flex flex-col justify-center">
+            <div className="inline-flex px-4 py-1.5 rounded-full bg-[#c23e38] text-white text-xs md:text-sm font-medium w-fit mb-6">
+              Mission
+            </div>
+            <h2 className="text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] leading-[1.1] font-bold text-gray-900 tracking-tight mb-8">
+              Whole. Bioactive. Sustainable.
+            </h2>
+            <div className="flex flex-col gap-6 text-gray-900 font-medium leading-relaxed text-[15px] md:text-[17px]">
               <p>
-                Đội ngũ của chúng tôi luôn đi đầu trong ngành thảo dược quý kể từ những ngày đầu. Chúng tôi tự hào áp dụng các phương pháp khai thác bảo tồn và kỹ thuật chế biến hiện đại để bảo vệ vẹn nguyên dược tính của nấm, giúp chúng mang lại giá trị lâu dài cho sức khỏe qua nhiều thế hệ.
+                At Myzel Organics, innovation means working with nature — not against it.
+              </p>
+              <p>
+                We believe that mushrooms have the power to drive a new era of health, well-being and environmental stewardship.
+              </p>
+              <p>
+                We have developed a sustainable, full-spectrum process that unites fruiting body and mycelium through fermentation to create less-processed, whole-food mushroom nutrition.
+              </p>
+              <p>
+                The result is a rich, bioactive matrix to grow mushrooms that are nutrient-dense, potent in compounds, and with zero waste.
+              </p>
+              <p>
+                It's how we harness nature's intelligence to build a cleaner, smarter, more sustainable future for functional health and nutrition.
               </p>
             </div>
-            <div className="w-full lg:w-1/2 text-gray-600 font-light leading-relaxed text-base md:text-lg">
-              <p>
-                Tại Nấm Lim Xanh Trường Lâm, chúng tôi chuyên cung cấp các giải pháp chăm sóc sức khỏe và phục hồi thể trạng tự nhiên, được tinh tuyển từ những cây nấm chất lượng nhất vùng núi rừng. Kể từ khi thành lập, chúng tôi cam kết mang đến chất lượng và dịch vụ vượt trội, đảm bảo rằng mỗi sản phẩm đều phản ánh sự tận tâm của chúng tôi đối với sự hoàn hảo.
-              </p>
-            </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* 3. Our Mission Section */}
-      <section className="w-full bg-white py-20 lg:py-32">
-        <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
-
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-16 lg:mb-24">
-            <div className="w-full lg:w-1/4">
-              <h3 className="text-[11px] font-semibold tracking-[0.2em] text-gray-500 uppercase">
-                Sứ Mệnh
-              </h3>
-            </div>
-            <div className="w-full lg:w-3/4">
-              <h2 className="text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[1.1] font-medium text-gray-900 max-w-4xl">
-                Cung Cấp Các Sản Phẩm Phục Hồi Sức Khỏe Đáng Tin Cậy Và Nâng Tầm Chất Lượng Cuộc Sống.
-              </h2>
-            </div>
-          </div>
-
-          {/* 4 Images Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mt-8">
-            <div className="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden group">
-              <Image src="/images/BoxGift.jpg" alt="Mission 1" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden group">
-              <Image src="/images/HomeBG.jpg" alt="Mission 2" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden group">
-              <Image src="/images/BoxGift.jpg" alt="Mission 3" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden group">
-              <Image src="/images/HomeBG.jpg" alt="Mission 4" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+          {/* Right: Image */}
+          <div className="w-full lg:w-5/12">
+            <div className="relative w-full aspect-square md:aspect-[4/5] rounded-[16px] overflow-hidden">
+              <Image
+                src="/images/HomeBG.jpg"
+                alt="Myzel Team"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 

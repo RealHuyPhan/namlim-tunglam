@@ -1,14 +1,20 @@
 import AboutSection from "@/components/home/AboutSection";
 import FeatureSection from "@/components/home/FeatureSection";
+import GardenSection from "@/components/home/GardenSection";
+import PublicationsSection from "@/components/home/PublicationsSection";
 import EmpowerSection from "@/components/home/EmpowerSection";
+import ProductsSection from "@/components/home/ProductsSection";
+import FAQSection from "@/components/home/FAQSection";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Star } from "lucide-react";
 
 export default function Home() {
   return (
     <>
-      <main className="relative min-h-[55vh] md:min-h-screen w-full flex flex-col">
+      <main className="relative min-h-[55vh] md:min-h-screen w-full flex flex-col p-[10px]">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-[10px] z-0 rounded-[16px] overflow-hidden">
           <Image
             src="/images/HomeBG.jpg"
             alt="Agronext farming drone"
@@ -21,7 +27,7 @@ export default function Home() {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col flex-1 pb-10 md:pb-16 pt-28 md:pt-32 lg:pt-48">
+        <div className="relative z-10 w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col flex-1 pb-10 md:pb-16 pt-16 md:pt-16 lg:pt-16">
 
           {/* Main Content Area - higher on mobile, centered on desktop */}
           <div className="flex-1 flex flex-col justify-start md:justify-center w-full max-w-3xl mt-4 md:mt-12 drop-shadow-xl">
@@ -31,23 +37,29 @@ export default function Home() {
               TRƯỜNG LÂM
             </h1>
 
-            {/* Mobile Description - directly under H1 */}
-            <p className="text-white text-base sm:text-lg font-medium max-w-[320px] sm:max-w-sm mt-6 leading-relaxed md:hidden">
-              We are driving the future of farming with advanced machinery and automation to maximize yield and sustainability.
+            {/* Subtitle */}
+            <p className="text-white/90 text-lg md:text-xl font-light max-w-[400px] mt-6 mb-8 leading-relaxed">
+              Thương hiệu hàng đầu về nấm lim xanh tự nhiên, chất lượng cao tại Việt Nam.
             </p>
-          </div>
 
-          {/* Desktop Description - aligned to the right at the bottom */}
-          <div className="hidden md:flex justify-end mt-auto">
-            <p className="text-white text-xl lg:text-2xl font-medium max-w-[500px] text-right leading-snug">
-              We are driving the future of farming with advanced machinery and automation to maximize yield and sustainability.
-            </p>
+            {/* Button */}
+            <div className="flex items-center mb-16">
+              <Link href="/products" className="group flex items-center justify-between bg-[#312d29] rounded-full pl-6 pr-2 py-2 hover:bg-[#221f1c] transition-colors border border-white/5">
+                <span className="text-white font-medium mr-12 md:mr-16 text-[15px]">Xem Sản Phẩm</span>
+                <div className="w-9 h-9 rounded-full bg-[#c23e38] flex items-center justify-center text-white group-hover:bg-[#a9302a] transition-colors">
+                  <ArrowUpRight className="w-5 h-5" strokeWidth={2} />
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </main>
       <AboutSection />
       <FeatureSection />
-      <EmpowerSection />
+      <ProductsSection />
+      <GardenSection />
+      <PublicationsSection />
+      <FAQSection />
     </>
   );
 }

@@ -16,20 +16,7 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Default light top page (dark text will show when scrolled or not on light top page)
-  const isLightTopPage = pathname !== "/";
-  const shouldShowDarkText = isScrolled || isLightTopPage;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Prevent scroll when mobile menu is open
   useEffect(() => {
@@ -44,20 +31,13 @@ export default function Header() {
   }, [isMobileMenuOpen]);
 
   // Color classes
-  const textColorClass = shouldShowDarkText ? "text-gray-900" : "text-white";
-  const buttonBgClass = shouldShowDarkText
-    ? "bg-gray-900 text-white hover:bg-gray-800"
-    : "bg-white text-gray-900 hover:bg-gray-100";
-  const hamburgerColorClass = isMobileMenuOpen
-    ? "bg-gray-900"
-    : (shouldShowDarkText ? "bg-gray-900" : "bg-white");
+  const textColorClass = "text-white";
+  const buttonBgClass = "bg-white/10 text-white hover:bg-white/20 border border-white/20";
+  const hamburgerColorClass = isMobileMenuOpen ? "bg-gray-900" : "bg-white";
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "bg-white/95 backdrop-blur-md shadow-sm py-4"
-        : "bg-transparent py-6"
-        }`}
+      className="absolute top-[10px] left-[10px] right-[10px] z-50 py-6"
     >
       <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex items-center justify-between">
@@ -84,7 +64,7 @@ export default function Header() {
                 {pathname === link.path && (
                   <motion.div
                     layoutId="activeNav"
-                    className={`absolute -bottom-1 left-0 right-0 h-0.5 ${shouldShowDarkText ? "bg-gray-900" : "bg-white"}`}
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white"
                   />
                 )}
               </Link>

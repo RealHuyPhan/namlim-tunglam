@@ -1,68 +1,69 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Check } from "lucide-react";
 
 export default function FeatureSection() {
+  const benefits = [
+    "Hỗ trợ điều trị ung thư",
+    "Giải độc gan, xơ gan",
+    "Ổn định huyết áp",
+    "Hỗ trợ điều trị tiểu đường",
+    "Tăng cường hệ miễn dịch",
+    "Cải thiện giấc ngủ, an thần"
+  ];
+
   return (
-    <section className="w-full bg-white py-8 lg:py-12 overflow-hidden">
+    <section className="w-full bg-[#2a2928] py-20 lg:py-32 overflow-hidden">
       <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
-
-        {/* Header Section */}
-        <div className="mb-12 md:mb-16">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-[1px] bg-gray-500" />
-            <span className="text-gray-600 font-medium tracking-wide">Sản phẩm của chúng tôi</span>
-          </div>
-          <h2 className="text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] leading-[1.15] font-medium text-gray-900">
-            Sản phẩm Nấm Lim Xanh Trường Lâm
-          </h2>
-        </div>
-
-        {/* Images Grid */}
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch h-auto lg:h-[600px]">
-
-          {/* Left Column */}
-          <div className="w-full lg:w-[30%] relative min-h-[400px] lg:min-h-full rounded-2xl overflow-hidden shadow-sm">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
+          
+          {/* Left Column - Image */}
+          <div className="w-full lg:w-5/12 relative aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
             <Image
               src="/images/HomeBG.jpg"
-              alt="Innovative Agro Machinery 1"
+              alt="Công dụng nấm lim xanh"
               fill
-              className="object-cover hover:scale-105 transition-transform duration-700"
+              className="object-cover"
             />
           </div>
 
-          {/* Middle Column */}
-          <div className="w-full lg:w-[40%] relative min-h-[500px] lg:min-h-full rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end">
-            <Image
-              src="/images/BoxGift.jpg"
-              alt="Smart Irrigation Network"
-              fill
-              className="object-cover z-0 hover:scale-105 transition-transform duration-700"
-            />
-            {/* Glass Card */}
-            <div className="bg-white/60 backdrop-blur-md border border-white/40 rounded-xl p-8 mx-4 md:mx-6 mb-4 md:mb-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] relative z-10">
-              <p className="text-sm tracking-wider text-gray-500 uppercase font-medium mb-3">
-                California, USA
-              </p>
-              <h3 className="text-2xl md:text-3xl font-medium text-gray-900 mb-3">
-                Smart Irrigation Network
-              </h3>
-              <p className="text-gray-500 text-base leading-relaxed">
-                Efficient water management system reducing water wastage by 40%.
-              </p>
+          {/* Right Column - Content */}
+          <div className="w-full lg:w-7/12 flex flex-col justify-center">
+            <div className="inline-flex px-4 py-1.5 rounded-full bg-[#c23e38] text-white text-xs md:text-sm font-medium w-fit mb-6 md:mb-8">
+              Công Dụng
             </div>
-          </div>
+            
+            <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-semibold text-white tracking-tight mb-8">
+              Lợi Ích Sức Khỏe <br className="hidden md:block" />
+              Tuyệt Vời Của Nấm Lim Xanh
+            </h2>
+            
+            <p className="text-white/80 text-base md:text-lg leading-relaxed font-light mb-12 max-w-3xl">
+              Nấm Lim Xanh Trường Lâm tự hào mang đến hàm lượng dược chất cao nhất, được chứng minh qua các kiểm định lâm sàng. Sử dụng đều đặn mỗi ngày giúp phục hồi sức khỏe, ngăn ngừa và hỗ trợ điều trị hiệu quả các bệnh lý mãn tính.
+            </p>
 
-          {/* Right Column */}
-          <div className="w-full lg:w-[30%] relative min-h-[400px] lg:min-h-full rounded-2xl overflow-hidden shadow-sm">
-            <Image
-              src="/images/HomeBG.jpg"
-              alt="Innovative Agro Machinery 3"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-700"
-            />
-          </div>
+            {/* Checkmarks Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-8 mb-12">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <Check className="w-5 h-5 text-white/80 flex-shrink-0" strokeWidth={2} />
+                  <span className="text-white/90 text-[15px] md:text-base font-light tracking-wide">{benefit}</span>
+                </div>
+              ))}
+            </div>
 
+            {/* Button */}
+            <div>
+              <Link href="/products" className="group inline-flex items-center justify-between bg-white/10 rounded-full pl-6 pr-2 py-2 hover:bg-white/20 transition-colors w-fit border border-white/5">
+                <span className="text-white font-medium mr-12 md:mr-16 text-[15px]">Tìm Hiểu Thêm</span>
+                <div className="w-9 h-9 rounded-full bg-[#c23e38] flex items-center justify-center text-white group-hover:bg-[#a9302a] transition-colors">
+                  <ArrowUpRight className="w-5 h-5" strokeWidth={2} />
+                </div>
+              </Link>
+            </div>
+            
+          </div>
         </div>
-
       </div>
     </section>
   );

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Star } from "lucide-react";
 
 const CATEGORIES = [
   "Tất cả sản phẩm",
@@ -92,147 +92,101 @@ export default function ProductsPage() {
 
   const sortOptions = ["Mới nhất", "Giá: Thấp đến Cao", "Giá: Cao đến Thấp"];
 
-  const filteredProducts = activeCategory === "Tất cả sản phẩm" 
-    ? PRODUCTS 
+  const filteredProducts = activeCategory === "Tất cả sản phẩm"
+    ? PRODUCTS
     : PRODUCTS.filter(p => p.category === activeCategory);
 
   return (
-    <main className="w-full flex flex-col min-h-screen bg-white pt-24 md:pt-32 pb-24">
-      
-      <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 lg:px-12">
-        
-        {/* Page Header */}
-        <div className="text-center mb-12 lg:mb-16">
-          <h1 className="text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
-            Sản Phẩm
-          </h1>
-          <p className="text-gray-500 font-light">
-            Nấm Lim Xanh tự nhiên nguyên chất, chất lượng hảo hạng.
+    <main className="w-full flex flex-col min-h-screen bg-white pb-24">
+
+      {/* Hero Section */}
+      <section className="relative w-full h-[430px] flex items-center pt-24 md:pt-32 p-[10px]">
+        {/* Background Image */}
+        <div className="absolute inset-[10px] z-0 bg-[#252425] rounded-[16px] overflow-hidden">
+          <Image
+            src="/images/HomeBG.jpg"
+            alt="Products Background"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40" /> {/* Dark overlay */}
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-[1800px] mx-auto px-4 md:px-8 lg:px-12">
+          <div className="flex flex-col items-start w-full max-w-2xl">
+            <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-white tracking-tight mb-4 md:mb-6">
+              Our Products
+            </h1>
+            <p className="text-white/90 text-base md:text-lg leading-relaxed font-normal mb-8 md:mb-10 max-w-xl">
+              Compliance With the Strictest Standards
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 lg:px-12 mt-12 md:mt-16">
+
+        {/* Products Grid Header */}
+        <div className="flex flex-col items-center text-center mb-10 mt-6">
+          <div className="inline-flex px-4 py-1.5 rounded-full bg-[#c23e38] text-white text-xs md:text-sm font-medium w-fit mb-4">
+            Current Species
+          </div>
+          <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-gray-900 tracking-tight mb-6">
+            Our Mushrooms
+          </h2>
+          <p className="text-gray-900 text-base md:text-lg leading-relaxed font-normal max-w-3xl">
+            Premium functional mushroom powders for nutraceuticals and superfoods—organically grown in Canada with Certificates of Analysis for verified quality. Available exclusively in bulk quantities.
           </p>
         </div>
 
-        {/* Toolbar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 border-t border-b border-gray-100 py-4">
-          
-          {/* Left: Filter */}
-          <button 
-            onClick={() => setShowFilters(!showFilters)}
-            className={`w-full md:w-auto border px-8 py-2.5 text-sm font-medium transition-colors flex items-center justify-center gap-2 ${showFilters ? "border-[#62190F] text-[#62190F]" : "border-gray-200 text-gray-900 hover:border-[#62190F] hover:text-[#62190F]"}`}
-          >
-            Lọc sản phẩm <ChevronDown className={`w-4 h-4 transition-transform ${showFilters ? "rotate-180" : ""}`} />
-          </button>
-          
-          {/* Center: View Toggle */}
-          <div className="hidden md:flex items-center gap-5 text-gray-400">
-            <LayoutGrid 
-              className={`w-5 h-5 cursor-pointer transition-colors ${gridCols === 4 ? "text-[#62190F]" : "hover:text-[#62190F]"}`} 
-              onClick={() => setGridCols(4)}
-            />
-            <Columns 
-              className={`w-5 h-5 cursor-pointer transition-colors ${gridCols === 2 ? "text-[#62190F]" : "hover:text-[#62190F]"}`} 
-              onClick={() => setGridCols(2)}
-            />
-          </div>
-
-          {/* Right: Sort Custom Dropdown */}
-          <div className="relative w-full md:w-auto">
-            <button 
-              onClick={() => setShowSort(!showSort)}
-              className={`w-full md:w-auto min-w-[160px] border px-6 py-2.5 text-sm font-medium transition-colors flex items-center justify-between gap-3 ${showSort ? "border-[#62190F] text-[#62190F]" : "border-gray-200 text-gray-900 hover:border-[#62190F] hover:text-[#62190F]"}`}
-            >
-              {sortOption} <ChevronDown className={`w-4 h-4 transition-transform shrink-0 ${showSort ? "rotate-180" : ""}`} />
-            </button>
-            
-            {showSort && (
-              <div className="absolute top-full right-0 mt-1 w-full md:w-[200px] bg-white border border-gray-100 shadow-xl z-50 flex flex-col">
-                <button 
-                  onClick={() => { setSortOption("Sắp xếp"); setShowSort(false); }}
-                  className={`w-full text-left px-5 py-3 text-sm transition-colors ${sortOption === "Sắp xếp" ? "bg-[#f9f9f9] text-[#62190F] font-medium" : "text-gray-600 hover:bg-[#f9f9f9] hover:text-[#62190F] font-light"}`}
-                >
-                  Mặc định
-                </button>
-                {sortOptions.map((opt) => (
-                  <button 
-                    key={opt}
-                    onClick={() => { setSortOption(opt); setShowSort(false); }}
-                    className={`w-full text-left px-5 py-3 text-sm transition-colors border-t border-gray-50 ${sortOption === opt ? "bg-[#f9f9f9] text-[#62190F] font-medium" : "text-gray-600 hover:bg-[#f9f9f9] hover:text-[#62190F] font-light"}`}
-                  >
-                    {opt}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Filter Dropdown (Collapsible) */}
-        {showFilters && (
-          <div className="mb-12 p-8 bg-[#f9f9f9] border border-gray-100 flex flex-wrap gap-4">
-            {CATEGORIES.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-5 py-2 text-sm transition-colors border ${
-                  activeCategory === category 
-                    ? "bg-[#62190F] text-white border-[#62190F] font-medium" 
-                    : "bg-white text-gray-600 border-gray-200 hover:border-[#62190F] hover:text-[#62190F] font-light"
+        {/* Categories Horizontal List */}
+        <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 mb-16">
+          {CATEGORIES.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-colors border ${activeCategory === category
+                  ? "bg-gray-900 text-white border-gray-900"
+                  : "bg-white text-gray-600 border-gray-200 hover:border-gray-900 hover:text-gray-900"
                 }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        )}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
 
         {/* Product Grid */}
         {filteredProducts.length > 0 ? (
-          <div className={`grid gap-x-6 gap-y-12 ${
-            gridCols === 4 
-              ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4" 
-              : "grid-cols-1 sm:grid-cols-2"
-          }`}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-16">
             {filteredProducts.map((product) => (
-              <div 
-                key={product.id} 
-                className="group flex flex-col cursor-pointer"
+              <div
+                key={product.id}
+                className="group flex flex-col cursor-pointer items-center text-center"
               >
-                {/* Image Container - Square, light bg, no rounding */}
-                <div className="relative w-full aspect-square overflow-hidden bg-[#f4f4f4] mb-4">
+                {/* Image Container */}
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-white mb-6">
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-cover transition-transform duration-700 ease-out"
+                    className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  {/* Fake badge like in reference image */}
-                  {product.rating === 5 && (
-                    <div className="absolute top-3 right-3 bg-white/90 px-3 py-1 text-[10px] uppercase tracking-wider font-medium text-gray-900">
-                      Bán chạy
-                    </div>
-                  )}
                 </div>
 
-                {/* Product Details - Aligned left, bold title, light subtitle */}
-                <div className="flex flex-col px-1">
-                  <h4 className="text-[15px] font-semibold text-gray-900 mb-1 leading-snug">
-                    <Link href={`/products/${product.id}`}>
-                      {product.name}
-                    </Link>
-                  </h4>
-                  <p className="text-[13px] text-gray-500 mb-2 font-light">
-                    {product.category}
-                  </p>
-                  <span className="text-[14px] text-gray-900 font-medium">
-                    {product.price} <span className="text-[11px] text-gray-500 font-normal uppercase ml-1">VNĐ</span>
-                  </span>
-                </div>
+                {/* Product Details */}
+                <h4 className="text-[15px] font-semibold text-gray-900 mb-1 leading-snug">
+                  <Link href={`/products/${product.id}`}>
+                    {product.name} <span className="font-light text-gray-500 italic ml-1">, Ganoderma lucidum</span>
+                  </Link>
+                </h4>
               </div>
             ))}
           </div>
         ) : (
           <div className="w-full py-20 text-center">
             <p className="text-gray-500 text-lg font-light">Không có sản phẩm nào trong danh mục này.</p>
-            <button 
+            <button
               onClick={() => setActiveCategory("Tất cả sản phẩm")}
               className="mt-6 text-gray-900 border-b border-gray-900 font-medium pb-1"
             >
@@ -240,7 +194,6 @@ export default function ProductsPage() {
             </button>
           </div>
         )}
-
       </div>
     </main>
   );
