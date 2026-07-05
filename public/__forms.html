@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Netlify Forms</title>
+  </head>
+  <body>
+    <!-- 
+      This file is required by Netlify to detect forms in Next.js App Router. 
+      It is not visible to users. 
+    -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="subject" value="[Web Nấm Lim Xanh] Có khách hàng liên hệ!" />
+      <input type="text" name="bot-field" />
+      
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
