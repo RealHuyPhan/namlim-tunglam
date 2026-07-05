@@ -5,15 +5,19 @@ import { ArrowUpRight, Check } from "lucide-react";
 export default function FeatureSection() {
   const benefits = [
     "Hỗ trợ điều trị ung thư",
-    "Giải độc gan, xơ gan",
-    "Ổn định huyết áp",
-    "Hỗ trợ điều trị tiểu đường",
-    "Tăng cường hệ miễn dịch",
-    "Cải thiện giấc ngủ, an thần"
+    "Bảo vệ gan, chống viêm",
+    "Hỗ trợ điều hòa huyết áp",
+    "Hỗ trợ tiểu đường tuýp 2",
+    "Tăng cường miễn dịch (Beta-glucan)",
+    "Cải thiện chất lượng giấc ngủ",
+    "Cải thiện mỡ gan, mỡ máu",
+    "Bảo vệ sức khỏe tim mạch",
+    "Chống oxy hóa, làm chậm lão hóa",
+    "Bồi bổ sức khỏe người cao tuổi"
   ];
 
   return (
-    <section className="w-full bg-[#2a2928] py-20 lg:py-32 overflow-hidden">
+    <section className="w-full bg-[#68502D] py-20 lg:py-32 overflow-hidden">
       <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
           

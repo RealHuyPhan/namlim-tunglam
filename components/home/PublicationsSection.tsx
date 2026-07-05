@@ -3,7 +3,7 @@ import Image from "next/image";
 const publications = [
   {
     id: 1,
-    title: "Kết Quả Kiểm Định Dược Tính",
+    title: "Kết Quả ",
     content: "\"Kết quả phân tích từ các cơ quan y tế uy tín cho thấy hàm lượng Triterpenes và Germanium trong Nấm Lim Xanh Trường Lâm cao vượt trội. Đây là những hoạt chất đóng vai trò cốt lõi trong việc ức chế gốc tự do, tăng cường hệ miễn dịch và hỗ trợ điều trị hiệu quả các bệnh lý về gan, huyết áp. Quy trình bảo quản khép kín giúp nấm giữ nguyên 100% giá trị dược lý ban đầu.\"",
     author: "Viện Dược Liệu",
     role: "Cơ quan kiểm định y tế",
@@ -38,7 +38,7 @@ export default function PublicationsSection() {
             Nghiên Cứu & Công Bố
           </div>
           <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-gray-900 tracking-tight mb-6">
-            Khẳng Định Chất Lượng <br className="hidden md:block" /> Bằng Khoa Học
+            Công bố khoa học
           </h2>
           <p className="text-gray-600 text-base md:text-lg leading-relaxed font-light max-w-2xl">
             Sự uy tín của Nấm Lim Xanh Trường Lâm được minh chứng bằng các kết quả kiểm định lâm sàng và các chứng nhận chất lượng từ cơ quan y tế hàng đầu.

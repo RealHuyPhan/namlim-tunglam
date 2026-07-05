@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
@@ -6,13 +7,19 @@ export default function Footer() {
     <footer className="w-full bg-white text-gray-900 pt-16 md:pt-20 pb-8 mt-auto border-t border-gray-100">
       <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
 
-        <div className="flex flex-col lg:flex-row justify-between gap-12 mb-16">
+        <div className="flex flex-col lg:flex-row justify-between gap-12 ">
 
           {/* Column 1: Brand & Info */}
           <div className="w-full lg:max-w-sm flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold text-gray-900 tracking-wide">
-              Trường Lâm
-            </h2>
+            <Link href="/" className="inline-block relative w-64 md:w-[160px] h-auto -ml-2">
+              <Image
+                src="/images/LogoText.png"
+                alt="Nấm Lim Xanh Trường Lâm"
+                width={220}
+                height={80}
+                className="w-full h-auto object-cover object-left"
+              />
+            </Link>
             <p className="text-gray-600 leading-relaxed text-sm md:text-base font-light">
               Nấm Lim Xanh Trường Lâm Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, maxime, odit asperiores veritatis molestias suscipit sapiente temporibus aliquam excepturi omnis esse atque earum ratione beatae quis vel accusantium non accusamus.
             </p>

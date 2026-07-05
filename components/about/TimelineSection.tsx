@@ -8,27 +8,27 @@ import { Leaf } from "lucide-react";
 const timelineData = [
   {
     id: 1,
-    title: "The Farm",
-    description: "Purchased in August of 2021, the original poultry farm was the unlikely start of what would become the foundation for Myzel Organics.",
-    image: "/images/HomeBG.jpg", 
+    title: "Quy trình 1",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "/images/HomeBG.jpg",
   },
   {
     id: 2,
-    title: "Facility Retrofit",
-    description: "Over the next year, the facility underwent extensive renovations to transition into a state-of-the-art mushroom cultivation center.",
+    title: "Quy trình 2",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     image: "/images/BoxGift.jpg",
   },
   {
     id: 3,
-    title: "First Harvest",
-    description: "Our first successful harvest marked the beginning of our journey to provide premium, sustainable organic mushrooms.",
+    title: "Quy trình 3",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     image: "/images/HomeBG.jpg",
   }
 ];
 
 export default function TimelineSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   // Track the scroll progress through this section
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -39,31 +39,32 @@ export default function TimelineSection() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section className="w-full bg-white py-20 lg:py-32 overflow-hidden" ref={containerRef}>
+    <section className="w-full bg-white py-10 lg:py-20 overflow-hidden" ref={containerRef}>
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 relative">
-        
+
         {/* Title */}
         <div className="text-center mb-8 relative z-10 bg-white">
           <h2 className="text-[2rem] md:text-[3rem] lg:text-[3.5rem] font-bold text-gray-900 tracking-tight">
-            Chicken Farm to Mushroom Facility
+            Quy trình sản xuất của <br />
+            Nấm Lim Xanh Trường Lâm
           </h2>
         </div>
-        
+
         {/* Horizontal Line under title */}
         <div className="w-full h-[1px] bg-gray-300 relative z-0 mb-16 max-w-4xl mx-auto" />
 
         {/* Timeline Container */}
         <div className="relative w-full">
-          
+
           {/* Central Vertical Line Track (Light Gray) */}
           <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[1px] bg-gray-200 -translate-x-1/2" />
-          
+
           {/* Central Vertical Line Fill (Animated Black) */}
-          <motion.div 
+          <motion.div
             style={{ height: lineHeight }}
-            className="absolute left-[20px] md:left-1/2 top-0 w-[2px] bg-gray-900 -translate-x-1/2 origin-top z-0" 
+            className="absolute left-[20px] md:left-1/2 top-0 w-[2px] bg-gray-900 -translate-x-1/2 origin-top z-0"
           />
-          
+
           {/* Top Red Dot */}
           <div className="absolute left-[20px] md:left-1/2 top-0 w-2.5 h-2.5 bg-[#c23e38] rounded-full -translate-x-1/2 z-10" />
 
@@ -73,9 +74,9 @@ export default function TimelineSection() {
               const isEven = index % 2 === 0;
               return (
                 <div key={item.id} className="relative flex flex-col md:flex-row items-start w-full">
-                  
+
                   {/* Content Container (Alternating left/right on desktop) */}
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-10% 0px" }}
@@ -91,7 +92,7 @@ export default function TimelineSection() {
                         className="object-cover"
                       />
                     </div>
-                    
+
                     {/* Text block */}
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-6 h-6 rounded bg-[#c23e38] flex items-center justify-center text-white shrink-0">
@@ -103,12 +104,12 @@ export default function TimelineSection() {
                       {item.description}
                     </p>
                   </motion.div>
-                  
+
                 </div>
               );
             })}
           </div>
-          
+
         </div>
       </div>
     </section>

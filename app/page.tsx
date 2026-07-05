@@ -8,26 +8,18 @@ import FAQSection from "@/components/home/FAQSection";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Star } from "lucide-react";
+import ParallaxHero from "@/components/ui/ParallaxHero";
 
 export default function Home() {
   return (
     <>
-      <main className="relative min-h-[55vh] md:min-h-screen w-full flex flex-col p-[10px]">
-        {/* Background Image */}
-        <div className="absolute inset-[10px] z-0 rounded-[16px] overflow-hidden">
-          <Image
-            src="/images/HomeBG.jpg"
-            alt="Agronext farming drone"
-            fill
-            priority
-            className="object-cover"
-          />
-          {/* Overlay gradient to ensure text readability */}
-          <div className="absolute inset-0 bg-black/50 md:bg-black/20 bg-gradient-to-b from-black/40 md:from-black/50 via-black/30 md:via-transparent to-black/80 md:to-black/60" />
-        </div>
-
+      <ParallaxHero
+        backgroundImage="/images/HomeBG.jpg"
+        containerClass="min-h-[55vh] md:min-h-screen"
+        overlayClass="bg-black/50 md:bg-black/20 bg-gradient-to-b from-black/40 md:from-black/50 via-black/30 md:via-transparent to-black/80 md:to-black/60"
+      >
         {/* Content Container */}
-        <div className="relative z-10 w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col flex-1 pb-10 md:pb-16 pt-16 md:pt-16 lg:pt-16">
+        <div className="relative z-10 w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col flex-1 pb-10 md:pb-16 pt-30 md:pt-16 lg:pt-16">
 
           {/* Main Content Area - higher on mobile, centered on desktop */}
           <div className="flex-1 flex flex-col justify-start md:justify-center w-full max-w-3xl mt-4 md:mt-12 drop-shadow-xl">
@@ -39,7 +31,7 @@ export default function Home() {
 
             {/* Subtitle */}
             <p className="text-white/90 text-lg md:text-xl font-light max-w-[400px] mt-6 mb-8 leading-relaxed">
-              Thương hiệu hàng đầu về nấm lim xanh tự nhiên, chất lượng cao tại Việt Nam.
+              Thương hiệu nấm chất lượng cao tại Việt Nam.
             </p>
 
             {/* Button */}
@@ -53,7 +45,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </main>
+      </ParallaxHero>
       <AboutSection />
       <FeatureSection />
       <ProductsSection />

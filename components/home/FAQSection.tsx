@@ -7,33 +7,28 @@ import Link from "next/link";
 const faqData = [
   {
     id: 1,
-    question: "What is it like to source ingredients from Canada?",
-    answer: "We ensure the highest quality standards by working closely with local Canadian farms. Our supply chain is strictly monitored to guarantee premium, organic mushroom sourcing.",
+    question: "Trẻ em có uống được nấm lim xanh không? Độ tuổi và liều lượng phù hợp?",
+    answer: "Trẻ em dưới 2 tuổi không nên sử dụng nấm lim xanh vì hệ tiêu hóa và gan thận chưa phát triển hoàn thiện. Trẻ từ 2 tuổi trở lên có thể sử dụng liều lượng rất nhỏ (khoảng 2-5g/ngày) đun loãng để tăng cường sức đề kháng, tuy nhiên cần tham khảo ý kiến bác sĩ chuyên khoa trước khi dùng.",
   },
   {
     id: 2,
-    question: "Do your mushroom powders undergo third party testing?",
-    answer: "Yes, all of our products undergo rigorous third-party testing for heavy metals, pesticides, and microbial contaminants to ensure absolute safety and purity.",
+    question: "Phụ nữ mang thai có dùng nấm lim xanh được không?",
+    answer: "Phụ nữ mang thai và đang cho con bú không nên tự ý sử dụng nấm lim xanh. Mặc dù nấm lim xanh rất tốt cho sức khỏe, nhưng cơ địa phụ nữ mang thai rất nhạy cảm. Quý khách chỉ nên sử dụng khi có sự chỉ định và theo dõi sát sao của bác sĩ sản khoa.",
   },
   {
     id: 3,
-    question: "Are Certificates of Analysis available?",
-    answer: "Absolutely. We provide comprehensive Certificates of Analysis (COA) for every batch of our mushroom powders to verify their active compound levels and safety.",
+    question: "Người đang dùng thuốc Tây có uống nấm lim xanh cùng lúc được không?",
+    answer: "Có thể sử dụng kết hợp nấm lim xanh và thuốc Tây để hỗ trợ quá trình điều trị. Tuy nhiên, để đảm bảo hiệu quả tối ưu và tránh tương tác thuốc, thời gian uống nấm lim xanh nên cách thời gian uống thuốc Tây ít nhất 30 đến 45 phút.",
   },
   {
     id: 4,
-    question: "What species do you offer?",
-    answer: "We offer a wide variety of functional mushrooms including Reishi, Lion's Mane, Cordyceps, Turkey Tail, and Chaga, available in both whole and extract forms.",
+    question: "Uống nấm lim xanh bao lâu thì thấy hiệu quả?",
+    answer: "Hiệu quả của nấm lim xanh tùy thuộc vào cơ địa và tình trạng sức khỏe của mỗi người. Thông thường, người dùng sẽ cảm thấy cơ thể khỏe khoắn, ăn ngủ tốt hơn sau 1-2 tuần sử dụng liên tục. Đối với việc hỗ trợ điều trị bệnh, cần kiên trì sử dụng từ 2 đến 5 tháng để thấy rõ sự cải thiện thông qua các chỉ số y tế.",
   },
   {
     id: 5,
-    question: "Do you ship internationally?",
-    answer: "Yes, we ship our bulk mushroom powders globally. Shipping times and rates vary depending on the destination and order volume.",
-  },
-  {
-    id: 6,
-    question: "Do you offer custom blends?",
-    answer: "We do offer custom formulation and blending services for B2B clients looking to create unique mushroom-based nutraceutical products.",
+    question: "Những điều cần biết trước khi dùng?",
+    answer: "Trước khi sử dụng, cần đảm bảo nấm đã được sơ chế sạch sẽ, loại bỏ hoàn toàn phần gốc dính gỗ lim vì chứa độc tố tự nhiên. Nên sắc nấm bằng nồi đất hoặc nồi thủy tinh, tránh dùng nồi nhôm/kim loại làm giảm dược tính. Người mới dùng nên bắt đầu với liều lượng nhỏ (5-10g/ngày) để cơ thể làm quen.",
   }
 ];
 
@@ -45,20 +40,20 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="w-full py-20 lg:py-32 overflow-hidden bg-[#2a292b]">
+    <section className="w-full py-20 lg:py-32 overflow-hidden bg-[#68502D]">
       <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
 
           {/* Left Column */}
           <div className="w-full lg:w-4/12 flex flex-col items-start">
             <div className="inline-flex px-4 py-1.5 rounded-full bg-[#c23e38] text-white text-xs md:text-sm font-medium w-fit mb-6">
-              FAQ
+              Hỏi Đáp
             </div>
             <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-white tracking-tight mb-10">
-              Frequently Asked <br className="hidden lg:block" /> Questions
+              Câu Hỏi <br className="hidden lg:block" /> Thường Gặp
             </h2>
             <Link href="/faq" className="group inline-flex items-center justify-between bg-[#3f3e40] rounded-full pl-6 pr-2 py-2 hover:bg-[#4f4e50] transition-colors w-fit border border-white/5">
-              <span className="text-white font-medium mr-12 md:mr-16 text-[15px]">View More</span>
+              <span className="text-white font-medium mr-12 md:mr-16 text-[15px]">Xem Thêm</span>
               <div className="w-9 h-9 rounded-full bg-[#c23e38] flex items-center justify-center text-white group-hover:bg-[#a9302a] transition-colors">
                 <ArrowUpRight className="w-5 h-5" strokeWidth={2} />
               </div>

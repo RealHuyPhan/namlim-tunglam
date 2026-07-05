@@ -2,36 +2,27 @@ import Image from "next/image";
 import { Quote } from "lucide-react";
 import CertificateGallery from "@/components/about/CertificateGallery";
 import TimelineSection from "@/components/about/TimelineSection";
+import ParallaxHero from "@/components/ui/ParallaxHero";
 
 export default function AboutPage() {
   return (
     <main className="w-full flex flex-col min-h-screen bg-white pb-24">
 
       {/* Hero Section */}
-      <section className="relative w-full h-[430px] flex items-center pt-24 md:pt-32 p-[10px]">
-        {/* Background Image */}
-        <div className="absolute inset-[10px] z-0 bg-[#252425] rounded-[16px] overflow-hidden">
-          <Image
-            src="/images/HomeBG.jpg"
-            alt="About Background"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40" /> {/* Dark overlay */}
-        </div>
-
-        {/* Content */}
+      <ParallaxHero
+        backgroundImage="/images/HomeBG.jpg"
+      >
         <div className="relative z-10 w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex flex-col items-start w-full max-w-2xl">
             <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-white tracking-tight mb-2 md:mb-4">
-              About Myzel
+              Về Nấm Lim Xanh Trường Lâm
             </h1>
             <p className="text-white/90 text-base md:text-lg leading-relaxed font-normal">
               Our Origins and Purpose
             </p>
           </div>
         </div>
-      </section>
+      </ParallaxHero>
 
       {/* Story Section from Screenshot */}
       <section className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 mt-16 md:mt-24 mb-8 lg:mb-15">
@@ -55,14 +46,16 @@ export default function AboutPage() {
               Story
             </div>
             <h2 className="text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] leading-[1.1] font-bold text-gray-900 tracking-tight mb-8">
-              About Myzel
+              Về Nấm Lim Xanh
+              <br />
+              Trường Lâm
             </h2>
             <div className="flex flex-col gap-6 text-gray-900 font-medium leading-relaxed text-[15px] md:text-[17px]">
               <p>
-                Founded in 2021, Myzel Organics is a family-owned company built on a foundation of sustainability, quality, and transparency.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem rem ea facere ad labore doloremque! Nesciunt fugiat obcaecati tempore sit, perferendis perspiciatis dignissimos quae recusandae excepturi, explicabo deserunt rem eos!
               </p>
               <p>
-                From retrofitting a poultry farm into a cutting-edge mushroom cultivation facility to adopting innovative renewable energy solutions, our journey reflects a deep commitment to creating positive environmental impact.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
               </p>
             </div>
           </div>
@@ -71,7 +64,7 @@ export default function AboutPage() {
       </section>
 
       {/* 1. Open Letter (Kept as requested) */}
-      <section className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 mb-20 lg:mb-32">
+      <section className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20 items-center">
 
           {/* Left: Text Content Card */}
@@ -128,30 +121,30 @@ export default function AboutPage() {
       {/* 2. Mission Section (from screenshot) */}
       <section className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 mt-16 md:mt-24 mb-20 lg:mb-32">
         <div className="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20 items-center">
-          
+
           {/* Left: Content */}
           <div className="w-full lg:w-7/12 flex flex-col justify-center">
             <div className="inline-flex px-4 py-1.5 rounded-full bg-[#c23e38] text-white text-xs md:text-sm font-medium w-fit mb-6">
-              Mission
+              Tầm nhìn & Sứ mệnh
             </div>
             <h2 className="text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] leading-[1.1] font-bold text-gray-900 tracking-tight mb-8">
-              Whole. Bioactive. Sustainable.
+              Tầm nhìn & Sứ mệnh của Nấm Lim Xanh Trường Lâm
             </h2>
             <div className="flex flex-col gap-6 text-gray-900 font-medium leading-relaxed text-[15px] md:text-[17px]">
               <p>
-                At Myzel Organics, innovation means working with nature — not against it.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos eius
               </p>
               <p>
-                We believe that mushrooms have the power to drive a new era of health, well-being and environmental stewardship.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos eius obcaecati ad minima molestias aliquid cum quidem repudiandae necessitatibus?
               </p>
               <p>
-                We have developed a sustainable, full-spectrum process that unites fruiting body and mycelium through fermentation to create less-processed, whole-food mushroom nutrition.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos eius obcaecati ad minima molestias
               </p>
               <p>
-                The result is a rich, bioactive matrix to grow mushrooms that are nutrient-dense, potent in compounds, and with zero waste.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos eius obcaecati ad minima molestias aliquid cum quidem repudiandae necessitatibus?
               </p>
               <p>
-                It's how we harness nature's intelligence to build a cleaner, smarter, more sustainable future for functional health and nutrition.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos eius obcaecati ad minima molestias aliquid
               </p>
             </div>
           </div>
@@ -173,14 +166,14 @@ export default function AboutPage() {
 
       {/* 4. Our Values Section */}
       {/* Solid background based on the brand color #62190F, but much lighter/pastel for harmony */}
-      <section className="w-full bg-[#e8d8d5] py-20 lg:py-32">
+      <section className="w-full bg-[#68502D] py-20 lg:py-32">
         <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
 
           <div className="flex flex-col mb-16 lg:mb-24">
-            <h3 className="text-[11px] font-semibold tracking-[0.2em] text-[#62190F]/70 uppercase mb-8">
+            <h3 className="text-[11px] font-semibold tracking-[0.2em] text-white/70 uppercase mb-8">
               Giá Trị Cốt Lõi
             </h3>
-            <h2 className="text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[1.1] font-medium text-gray-900 max-w-4xl">
+            <h2 className="text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[1.1] font-medium text-white max-w-4xl">
               Những Nguyên Tắc Dẫn Lối Mọi Sản Phẩm Chúng Tôi Mang Lại.
             </h2>
           </div>
@@ -189,34 +182,34 @@ export default function AboutPage() {
 
             {/* Value 1 */}
             <div className="flex flex-col">
-              <span className="text-3xl font-light text-gray-900 mb-6">01</span>
-              <div className="w-full h-[1px] bg-gray-900/20 mb-6" />
-              <h4 className="text-xl font-medium text-gray-900 mb-2">Chất lượng</h4>
-              <p className="text-sm font-light text-gray-700">Mỗi chi tiết đều quan trọng.</p>
+              <span className="text-3xl font-light text-white mb-6">01</span>
+              <div className="w-full h-[1px] bg-white/20 mb-6" />
+              <h4 className="text-xl font-medium text-white mb-2">Lorem ipsum dolor </h4>
+              <p className="text-sm font-light text-white/70">Lorem ipsum dolor sit amet, consectetur</p>
             </div>
 
             {/* Value 2 */}
             <div className="flex flex-col">
-              <span className="text-3xl font-light text-gray-900 mb-6">02</span>
-              <div className="w-full h-[1px] bg-gray-900/20 mb-6" />
-              <h4 className="text-xl font-medium text-gray-900 mb-2">Chính trực</h4>
-              <p className="text-sm font-light text-gray-700">Đứng sau mọi sản phẩm.</p>
+              <span className="text-3xl font-light text-white mb-6">02</span>
+              <div className="w-full h-[1px] bg-white/20 mb-6" />
+              <h4 className="text-xl font-medium text-white mb-2">Lorem ipsum dolor </h4>
+              <p className="text-sm font-light text-white/70">Lorem ipsum dolor sit amet, consectetur</p>
             </div>
 
             {/* Value 3 */}
             <div className="flex flex-col">
-              <span className="text-3xl font-light text-gray-900 mb-6">03</span>
-              <div className="w-full h-[1px] bg-gray-900/20 mb-6" />
-              <h4 className="text-xl font-medium text-gray-900 mb-2">Đáng tin cậy</h4>
-              <p className="text-sm font-light text-gray-700">Giá trị trường tồn.</p>
+              <span className="text-3xl font-light text-white mb-6">03</span>
+              <div className="w-full h-[1px] bg-white/20 mb-6" />
+              <h4 className="text-xl font-medium text-white mb-2">Lorem ipsum dolor </h4>
+              <p className="text-sm font-light text-white/70">Lorem ipsum dolor sit amet, consectetur</p>
             </div>
 
             {/* Value 4 */}
             <div className="flex flex-col">
-              <span className="text-3xl font-light text-gray-900 mb-6">04</span>
-              <div className="w-full h-[1px] bg-gray-900/20 mb-6" />
-              <h4 className="text-xl font-medium text-gray-900 mb-2">An toàn</h4>
-              <p className="text-sm font-light text-gray-700">Tiêu chuẩn chuyên nghiệp.</p>
+              <span className="text-3xl font-light text-white mb-6">04</span>
+              <div className="w-full h-[1px] bg-white/20 mb-6" />
+              <h4 className="text-xl font-medium text-white mb-2">Lorem ipsum dolor </h4>
+              <p className="text-sm font-light text-white/70">Lorem ipsum dolor sit amet, consectetur</p>
             </div>
 
           </div>

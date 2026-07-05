@@ -8,31 +8,31 @@ const products = [
   {
     id: 1,
     name: "Nấm Lim Xanh",
-    desc: "Ganoderma Lucidum",
+    desc: "Nấm Lim Xanh description",
     image: "/images/BoxGift.jpg",
   },
   {
     id: 2,
-    name: "Đông Trùng Hạ Thảo",
-    desc: "Cordyceps Sinensis",
+    name: "Nấm Lim Xanh",
+    desc: "Nấm Lim Xanh description",
     image: "/images/HomeBG.jpg",
   },
   {
     id: 3,
-    name: "Nấm Linh Chi",
-    desc: "Ganoderma Lingzhi",
+    name: "Nấm Lim Xanh",
+    desc: "Nấm Lim Xanh description",
     image: "/images/BoxGift.jpg",
   },
   {
     id: 4,
-    name: "Nấm Hầu Thủ",
-    desc: "Hericium Erinaceus",
+    name: "Nấm Lim Xanh",
+    desc: "Nấm Lim Xanh description",
     image: "/images/HomeBG.jpg",
   },
   {
     id: 5,
-    name: "Nấm Vân Chi",
-    desc: "Trametes Versicolor",
+    name: "Nấm Lim Xanh",
+    desc: "Nấm Lim Xanh description",
     image: "/images/BoxGift.jpg",
   },
 ];
@@ -44,17 +44,17 @@ export default function ProductsSection() {
   return (
     <section className="w-full bg-white py-20 lg:py-32 overflow-hidden">
       <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
-        
+
         {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-16 lg:mb-24">
           <div className="inline-flex px-4 py-1.5 rounded-full bg-[#c23e38] text-white text-xs md:text-sm font-medium w-fit mb-6">
-            Current Species
+            Sản Phẩm
           </div>
           <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-gray-900 tracking-tight mb-6">
-            Our Mushrooms
+            Nấm và Chế phẩm
           </h2>
           <p className="text-gray-900 text-base md:text-lg leading-relaxed font-normal max-w-3xl">
-            Premium functional mushroom powders for nutraceuticals and superfoods—organically grown in Canada with Certificates of Analysis for verified quality. Available exclusively in bulk quantities.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur, sit temporibus quis at doloribus expedita illo ullam reprehenderit
           </p>
         </div>
 
@@ -93,7 +93,7 @@ export default function ProductsSection() {
                 />
                 {/* Darken overlay on hover */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 {/* Text inside the image, bottom left, hidden until hover */}
                 <div className="absolute bottom-0 left-0 w-full p-6 lg:p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
                   <h3 className="text-2xl font-bold text-white mb-1 tracking-wide">{item.name}</h3>
