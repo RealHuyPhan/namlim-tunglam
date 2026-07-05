@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BlogList from "@/components/blog/BlogList";
 import ParallaxHero from "@/components/ui/ParallaxHero";
+import FadeIn from "@/components/ui/FadeIn";
 
 export default function BlogPage() {
   return (
@@ -13,7 +14,7 @@ export default function BlogPage() {
       >
         <div className="relative z-10 w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex flex-col items-start w-full max-w-2xl">
-            <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-white tracking-tight mb-2 md:mb-4">
+            <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-white tracking-tight mb-2 md:mb-4 mt-8">
               Tin tức & Góc sức khỏe
             </h1>
             <p className="text-white/90 text-base md:text-lg leading-relaxed font-normal">
@@ -23,6 +24,7 @@ export default function BlogPage() {
         </div>
       </ParallaxHero>
 
+      <FadeIn>
       <section className="w-full py-20 overflow-hidden">
         <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
@@ -66,11 +68,14 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* 3. Blog Content Section */}
+      <FadeIn delay={0.1}>
       <section id="all-posts" className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-12 py-15">
         <BlogList />
       </section>
+      </FadeIn>
 
     </main>
   );

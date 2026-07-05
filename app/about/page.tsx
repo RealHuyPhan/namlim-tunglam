@@ -3,6 +3,7 @@ import { Quote } from "lucide-react";
 import CertificateGallery from "@/components/about/CertificateGallery";
 import TimelineSection from "@/components/about/TimelineSection";
 import ParallaxHero from "@/components/ui/ParallaxHero";
+import FadeIn from "@/components/ui/FadeIn";
 
 export default function AboutPage() {
   return (
@@ -14,7 +15,7 @@ export default function AboutPage() {
       >
         <div className="relative z-10 w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex flex-col items-start w-full max-w-2xl">
-            <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-white tracking-tight mb-2 md:mb-4">
+            <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-white tracking-tight mb-2 md:mb-4 mt-8">
               Về Nấm Lim Xanh Trường Lâm
             </h1>
             <p className="text-white/90 text-base md:text-lg leading-relaxed font-normal">
@@ -25,6 +26,7 @@ export default function AboutPage() {
       </ParallaxHero>
 
       {/* Story Section from Screenshot */}
+      <FadeIn>
       <section className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 mt-16 md:mt-24 mb-8 lg:mb-15">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
 
@@ -62,9 +64,11 @@ export default function AboutPage() {
 
         </div>
       </section>
+      </FadeIn>
 
       {/* 1. Open Letter (Kept as requested) */}
-      <section className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
+      <FadeIn delay={0.1}>
+      <section className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 mb-20">
         <div className="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20 items-center">
 
           {/* Left: Text Content Card */}
@@ -113,12 +117,14 @@ export default function AboutPage() {
 
         </div>
       </section>
+      </FadeIn>
 
       {/* Timeline Scroll Animation Section */}
       <TimelineSection />
 
 
       {/* 2. Mission Section (from screenshot) */}
+      <FadeIn delay={0.2}>
       <section className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 mt-16 md:mt-24 mb-20 lg:mb-32">
         <div className="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20 items-center">
 
@@ -163,9 +169,10 @@ export default function AboutPage() {
 
         </div>
       </section>
+      </FadeIn>
 
       {/* 4. Our Values Section */}
-      {/* Solid background based on the brand color #62190F, but much lighter/pastel for harmony */}
+      <FadeIn delay={0.1}>
       <section className="w-full bg-[#68502D] py-20 lg:py-32">
         <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
 
@@ -215,8 +222,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* 5. Licenses & Certifications Section */}
+      <FadeIn delay={0.1}>
       <section className="w-full bg-white py-12 lg:py-20">
         <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
 
@@ -233,6 +242,7 @@ export default function AboutPage() {
 
         </div>
       </section>
+      </FadeIn>
 
     </main>
   );

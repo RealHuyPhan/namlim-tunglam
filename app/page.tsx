@@ -9,6 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Star } from "lucide-react";
 import ParallaxHero from "@/components/ui/ParallaxHero";
+import FadeIn from "@/components/ui/FadeIn";
 
 export default function Home() {
   return (
@@ -46,12 +47,12 @@ export default function Home() {
           </div>
         </div>
       </ParallaxHero>
-      <AboutSection />
-      <FeatureSection />
-      <ProductsSection />
-      <GardenSection />
-      <PublicationsSection />
-      <FAQSection />
+      <FadeIn delay={0.1}><AboutSection /></FadeIn>
+      <FadeIn delay={0.1}><FeatureSection /></FadeIn>
+      <FadeIn delay={0.1}><ProductsSection /></FadeIn>
+      <FadeIn delay={0.1}><GardenSection /></FadeIn>
+      <FadeIn delay={0.1}><PublicationsSection /></FadeIn>
+      <FadeIn delay={0.1}><FAQSection /></FadeIn>
     </>
   );
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import ParallaxHero from "@/components/ui/ParallaxHero";
+import FadeIn from "@/components/ui/FadeIn";
 import { ArrowLeft, CheckCircle2, Heart, Activity, Settings } from "lucide-react";
 import { PRODUCTS } from "../data";
 
@@ -14,6 +15,14 @@ export default function ProductDetailPage() {
   const product = PRODUCTS.find(p => p.id === id) || PRODUCTS[0];
 
   const [activeTab, setActiveTab] = useState<"benefits" | "usage" | "specs">("benefits");
+  
+  const [mainImage, setMainImage] = useState(product.image);
+  const galleryImages = [
+    product.image,
+    "/images/HomeBG.jpg",
+    "/images/LogoNoText.png",
+    "/images/BoxGift.jpg"
+  ];
 
   return (
     <main className="w-full flex flex-col min-h-screen bg-[#fdfcfb] pb-24">
@@ -21,11 +30,11 @@ export default function ProductDetailPage() {
       <ParallaxHero
         backgroundImage="/images/HomeBG.jpg"
       >
-        <div 
+        <div
           className="relative z-10 w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20"
         >
           <div className="flex flex-col items-start w-full max-w-2xl">
-            <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-white tracking-tight mb-4 md:mb-6">
+            <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-white tracking-tight mb-4 md:mb-6 mt-8">
               Chi tiết sản phẩm
             </h1>
             <p className="text-white/90 text-base md:text-lg leading-relaxed font-normal mb-8 md:mb-10 max-w-xl">
@@ -38,6 +47,7 @@ export default function ProductDetailPage() {
       {/* Main Content Wrapper - slides over the parallax hero */}
       <div className="relative z-10 bg-[#fdfcfb] w-full">
         {/* Breadcrumb & Back button */}
+        <FadeIn direction="none">
         <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 pt-8 pb-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-gray-200 pb-6">
             <Link href="/products" className="flex items-center gap-2 text-[#62190F] font-semibold hover:opacity-70 transition-colors uppercase tracking-wider text-sm">
@@ -53,19 +63,21 @@ export default function ProductDetailPage() {
             </div>
           </div>
         </div>
+        </FadeIn>
 
         {/* Product Content */}
+        <FadeIn delay={0.1}>
         <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            
+
             {/* Left Column: Image */}
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 flex flex-col gap-4">
               <div className="relative w-full aspect-[4/3] lg:aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                <Image 
-                  src={product.image}
+                <Image
+                  src={mainImage}
                   alt={product.name}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-opacity duration-300"
                   priority
                 />
                 {product.isBestSeller && (
@@ -73,6 +85,28 @@ export default function ProductDetailPage() {
                     Bán chạy
                   </div>
                 )}
+              </div>
+
+              {/* Thumbnails Gallery */}
+              <div className="grid grid-cols-4 gap-3 md:gap-4">
+                {galleryImages.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setMainImage(img)}
+                    className={`relative w-full aspect-square bg-white rounded-lg overflow-hidden border-2 transition-all ${
+                      mainImage === img 
+                        ? 'border-[#62190F] opacity-100 shadow-md' 
+                        : 'border-transparent opacity-60 hover:opacity-100 hover:border-gray-300'
+                    }`}
+                  >
+                    <Image
+                      src={img}
+                      alt={`${product.name} thumbnail ${idx + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -102,7 +136,7 @@ export default function ProductDetailPage() {
 
               {/* Tabs Navigation */}
               <div className="flex flex-wrap items-center gap-6 md:gap-8 border-b border-gray-200 mb-8">
-                <button 
+                <button
                   onClick={() => setActiveTab("benefits")}
                   className={`flex items-center gap-2 pb-4 text-sm font-semibold uppercase tracking-wide transition-colors relative ${activeTab === 'benefits' ? 'text-[#62190F]' : 'text-gray-400 hover:text-gray-900'}`}
                 >
@@ -112,7 +146,7 @@ export default function ProductDetailPage() {
                     <div className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-[#62190F]"></div>
                   )}
                 </button>
-                <button 
+                <button
                   onClick={() => setActiveTab("usage")}
                   className={`flex items-center gap-2 pb-4 text-sm font-semibold uppercase tracking-wide transition-colors relative ${activeTab === 'usage' ? 'text-[#62190F]' : 'text-gray-400 hover:text-gray-900'}`}
                 >
@@ -122,7 +156,7 @@ export default function ProductDetailPage() {
                     <div className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-[#62190F]"></div>
                   )}
                 </button>
-                <button 
+                <button
                   onClick={() => setActiveTab("specs")}
                   className={`flex items-center gap-2 pb-4 text-sm font-semibold uppercase tracking-wide transition-colors relative ${activeTab === 'specs' ? 'text-[#62190F]' : 'text-gray-400 hover:text-gray-900'}`}
                 >
@@ -143,14 +177,14 @@ export default function ProductDetailPage() {
                       <span>{item}</span>
                     </li>
                   ))}
-                  
+
                   {activeTab === "usage" && (product.usage || []).map((item, index) => (
                     <li key={index} className="flex items-start gap-4 text-gray-600 font-light leading-relaxed">
                       <CheckCircle2 className="w-5 h-5 text-[#a87a5a] shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
-                  
+
                   {activeTab === "specs" && (product.specs || []).map((item, index) => (
                     <li key={index} className="flex items-start gap-4 text-gray-600 font-light leading-relaxed">
                       <CheckCircle2 className="w-5 h-5 text-[#a87a5a] shrink-0 mt-0.5" />
@@ -159,17 +193,18 @@ export default function ProductDetailPage() {
                   ))}
 
                   {/* Fallback if empty */}
-                  {((activeTab === 'benefits' && !product.benefits?.length) || 
-                    (activeTab === 'usage' && !product.usage?.length) || 
+                  {((activeTab === 'benefits' && !product.benefits?.length) ||
+                    (activeTab === 'usage' && !product.usage?.length) ||
                     (activeTab === 'specs' && !product.specs?.length)) && (
-                    <li className="text-gray-500 italic font-light">Nội dung đang được cập nhật...</li>
-                  )}
+                      <li className="text-gray-500 italic font-light">Nội dung đang được cập nhật...</li>
+                    )}
                 </ul>
               </div>
 
             </div>
           </div>
         </div>
+        </FadeIn>
       </div>
     </main>
   );

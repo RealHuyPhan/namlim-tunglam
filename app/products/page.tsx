@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ShoppingCart, Star } from "lucide-react";
 import ParallaxHero from "@/components/ui/ParallaxHero";
+import FadeIn from "@/components/ui/FadeIn";
 
 import { PRODUCTS, CATEGORIES } from "./data";
 
@@ -32,7 +33,7 @@ export default function ProductsPage() {
       >
         <div className="relative z-10 w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex flex-col items-start w-full max-w-2xl">
-            <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-white tracking-tight mb-4 md:mb-6">
+            <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] font-bold text-white tracking-tight mb-4 md:mb-6 mt-8">
               Sản phẩm của Nấm Lim Xanh Trường Lâm
             </h1>
             <p className="text-white/90 text-base md:text-lg leading-relaxed font-normal mb-8 md:mb-10 max-w-xl">
@@ -42,6 +43,7 @@ export default function ProductsPage() {
         </div>
       </ParallaxHero>
 
+      <FadeIn>
       <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-20 mt-12 md:mt-16">
 
         {/* Products Grid Header */}
@@ -111,6 +113,7 @@ export default function ProductsPage() {
           </div>
         )}
       </div>
+      </FadeIn>
     </main>
   );
 }
