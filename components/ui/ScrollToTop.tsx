@@ -39,9 +39,9 @@ export default function ScrollToTop() {
           transition={{ duration: 0.3 }}
           onClick={scrollToTop}
           aria-label="Cuộn lên đầu trang"
-          className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[90] p-3 rounded-full bg-[#62190F] text-white shadow-lg shadow-black/20 hover:bg-[#4a120b] hover:shadow-xl hover:-translate-y-1 transition-all group focus:outline-none"
+          className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[90] p-3 rounded-full bg-[#62190F] text-white shadow-lg shadow-black/20 hover:bg-[#4a120b] hover:shadow-xl transition-all group focus:outline-none"
         >
-          <ArrowUp className="w-5 h-5 md:w-6 md:h-6 group-hover:animate-bounce" />
+          <ArrowUp className="w-5 h-5 md:w-6 md:h-6" />
           
           {/* Tooltip */}
           <span className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-900 text-white text-xs font-medium py-1.5 px-3 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">

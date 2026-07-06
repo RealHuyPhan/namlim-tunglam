@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import FloatingSocial from "@/components/ui/FloatingSocial";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({
     >
       <body className="flex flex-col relative bg-white text-gray-900">
         <SmoothScroll>
+          <FloatingSocial />
           <Header />
           {children}
           <Footer />
